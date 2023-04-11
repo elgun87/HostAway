@@ -68,6 +68,8 @@ public class FilterForm {
     private WebElement bathrooms_value;
 
 
+    @FindBy(xpath = "//b[text()='Clear all']")
+    private WebElement filter_clear_all;
 
     public Boolean isEnabled(String inputName){
         boolean check = false;
@@ -84,19 +86,40 @@ public class FilterForm {
         return filters_text.isDisplayed();
     }
 
+//    public List<Boolean> amenities_checkbox(){
+//        //I was not able to use Select class from Selenium which is more useful.All checkboxes designed in div block, and I used regular way to check checkboxes
+//        List<Boolean> check = new ArrayList<>();
+//        //Loop will iterate inside checkbox and check all boxes then validate if boxes selected and then put the result in the list in order to validate later on
+//        for(int i = 1; i <= checkboxes.size();i++){
+//            boolean checkSelected = false;
+//            String element = "(//input[@type='checkbox']/parent::label)" + "[" + i +"]";
+//            Driver.getDriver().findElement(By.xpath(element)).click();
+//            element = "(//input[@type='checkbox'])" + "[" + i +"]";
+//            checkSelected = Driver.getDriver().findElement(By.xpath(element)).isSelected();
+//            check.add(checkSelected);
+//        }
+//        return check;
+//    }
+
     public List<Boolean> amenities_checkbox(){
         //I was not able to use Select class from Selenium which is more useful.All checkboxes designed in div block, and I used regular way to check checkboxes
-        List<Boolean> check = new ArrayList<>();
         //Loop will iterate inside checkbox and check all boxes then validate if boxes selected and then put the result in the list in order to validate later on
         for(int i = 1; i <= checkboxes.size();i++){
-            boolean checkSelected = false;
             String element = "(//input[@type='checkbox']/parent::label)" + "[" + i +"]";
             Driver.getDriver().findElement(By.xpath(element)).click();
-            element = "(//input[@type='checkbox'])" + "[" + i +"]";
-            checkSelected = Driver.getDriver().findElement(By.xpath(element)).isSelected();
-            check.add(checkSelected);
         }
-        return check;
+        return verify_checkboxes_unchecked();
+    }
+
+    public List<Boolean> verify_checkboxes_unchecked(){
+        List<Boolean> list = new ArrayList<>();
+        for(int i = 1; i <= checkboxes.size();i++){
+            boolean checkSelected = false;
+            String element = "(//input[@type='checkbox'])" + "[" + i +"]";
+            checkSelected = Driver.getDriver().findElement(By.xpath(element)).isSelected();
+            list.add(checkSelected);
+        }
+        return list;
     }
 
     public int roomAndBedsIncreaseButton(String option){
@@ -129,18 +152,24 @@ public class FilterForm {
         return total;
     }
 
-    public void increase(WebElement element){
+    private void increase(WebElement element){
         for(int i = 1; i <= 10; i++){
             element.click();
         }
     }
 
-    public void decrease(WebElement element){
+    private void decrease(WebElement element){
         int count = 0;
         for(int i = 10; i >= 0; i--){
             element.click();
         }
     }
+
+    public void filter_click_clear_button(){
+        filter_clear_all.click();
+    }
+
+
 
 
 
