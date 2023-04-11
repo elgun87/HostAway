@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="C:/Users/elgun/IdeaProjects/HostAway(failed)">
+    <classes>
+      <class name="com.runner.HostAwayTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyRoomsAndBeds"/>
+        </methods>
+      </class> <!-- com.runner.HostAwayTest -->
+    </classes>
+  </test> <!-- C:/Users/elgun/IdeaProjects/HostAway(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

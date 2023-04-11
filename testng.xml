@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/elgun/IdeaProjects/HostAway">
+        <classes>
+            <class name="com.runner.HostAwayTest">
+                <methods>
+                    <include name="validatePriceEntryFields"/>
+                    <include name="verifyAmenitiesFields"/>
+                    <include name="verifyBeds"/>
+                    <include name="verifyBedrooms"/>
+                    <include name="verifyBathrooms"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
