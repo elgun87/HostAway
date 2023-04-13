@@ -71,6 +71,10 @@ public class FilterForm {
     @FindBy(xpath = "//b[text()='Clear all']")
     private WebElement filter_clear_all;
 
+    @FindBy(xpath = "//div[text()='Filters']//following-sibling::button")
+    private WebElement closeButton;
+
+
     public Boolean isEnabled(String inputName){
         boolean check = false;
         if(inputName.equalsIgnoreCase("from")){
@@ -82,7 +86,7 @@ public class FilterForm {
     }
 
     public Boolean isFiltersTextDisplayed(){
-        DriverWait.elementVisibility(filters_text,5);
+        DriverWait.elementVisibility(filters_text);
         return filters_text.isDisplayed();
     }
 
@@ -167,6 +171,10 @@ public class FilterForm {
 
     public void filter_click_clear_button(){
         filter_clear_all.click();
+    }
+
+    public void filter_close(){
+        closeButton.click();
     }
 
 

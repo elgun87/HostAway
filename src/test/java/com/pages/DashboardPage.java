@@ -14,7 +14,18 @@ public class DashboardPage {
     @FindBy(xpath = "//button/span[text()='Search']")
     private WebElement search;
 
+    @FindBy(xpath = "//a[text()='All listings']")
+    private WebElement all_Listings;
+
     public void searchClick(){
         search.click();
+    }
+
+    public void click_all_listings(){
+        all_Listings.click();
+    }
+
+    public String getActualTitle(){
+        return Driver.getDriver().getTitle();
     }
 }

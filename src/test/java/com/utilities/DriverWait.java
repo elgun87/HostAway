@@ -8,10 +8,12 @@ import java.time.Duration;
 
 public abstract class DriverWait {
 
-    private static WebDriverWait webDriverWait;
+    static WebDriverWait webDriverWait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
-    public static void elementVisibility(WebElement element,int time){
-        webDriverWait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
+
+    public static void elementVisibility(WebElement element)
+    {
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
+
 }

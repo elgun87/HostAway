@@ -11,6 +11,7 @@
                     <include name="verifyBedrooms"/>
                     <include name="verifyBathrooms"/>
                     <include name="verifyClearAllButton"/>
+                    <include name="verifyAllListings"/>
                 </methods>
             </class>
         </classes>
